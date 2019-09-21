@@ -2,7 +2,7 @@ KanBan board.
 
 <div class="kanban-container">
 
-  <%= for {column_id, col_content } <- @board.columns do %>
+  <%= for {column_id, col_content } <- @columns do %>
       <div class="column-box">
 
         <div class="column-title">
