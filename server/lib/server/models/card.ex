@@ -7,12 +7,17 @@ defmodule Server.Models.Card do
              index: 0
             ]
 
-  def new do
+  def new(%{index: index}) do
     %__MODULE__{
       id: Faker.UUID.v4,
       data: Faker.Lorem.paragraph,
       title: Faker.Lorem.sentence,
+      index: index,
     }
   end
 
+  def new(count) do
+    index = 1
+    [new(%{index: index}) | new(count - 1)]
+  end
 end
