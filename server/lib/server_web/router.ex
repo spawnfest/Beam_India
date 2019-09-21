@@ -20,7 +20,7 @@ defmodule ServerWeb.Router do
 
     # get "/", PageController, :index
 
-    live "/", Kanban
+    live "/", KanbanLive.Index
   end
 
   # Other scopes may use custom stacks.

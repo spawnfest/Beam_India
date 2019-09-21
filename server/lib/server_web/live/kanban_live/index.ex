@@ -1,5 +1,8 @@
-defmodule ServerWeb.Kanban do
+defmodule ServerWeb.KanbanLive.Index do
   use Phoenix.LiveView
+
+  alias ServerWeb.KanbanView
+
 
   def mount(_assigns, socket) do
     columns = ["One", "two", "three"]
@@ -7,13 +10,7 @@ defmodule ServerWeb.Kanban do
   end
 
   def render(assigns) do
-    ~L"""
-    KanBan board.
-
-    <%= for col <- @columns do %>
-    <p> <%= col %></p>
-    <% end %>
-    """
+    KanbanView.render("index.html", assigns)
   end
 
 end
