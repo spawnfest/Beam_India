@@ -16,6 +16,10 @@ defmodule Server.Models.Card do
     }
   end
 
+  def new(0) do
+    []
+  end
+
   def new(count) do
     index = 1
     [new(%{index: index}) | new(count - 1)]
