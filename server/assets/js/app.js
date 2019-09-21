@@ -24,6 +24,10 @@ Hooks.Card = {
     mounted(){
         this.el.addEventListener("dragstart", e => {
             console.log("drag card started")
+
+            // add to dataTransfer. card_id
+            e.dataTransfer.setData("dragged_card_id", this.el.id)
+
         });
 
         this.el.addEventListener("dragend", e => {
@@ -38,6 +42,16 @@ Hooks.Card = {
         this.el.addEventListener("drop", e => {
             console.log("drop over card, card id");
             console.log(e.target.innerHTML);
+
+            // # send which card id
+            // # send drop on which card id
+            // collect from car through data transfer
+
+            let payload = {}
+            payload.from = e.dataTransfer.getData("dragged_card_id")
+            payload.to = e.target;
+
+            this.pushEvent("move-card", payload);
         });
     }
 }
