@@ -2,34 +2,37 @@ KanBan board.
 
 <div class="kanban-container">
 
-  <%= for %Server.Models.Column{
-      title: column_title,
-      id: column_id,
-      cards: cards} <- @columns do %>
+  <%= for {column_id, col_content } <- @board.columns do %>
       <div class="column-box">
 
-      <div class="column-title">
-        <%= column_title %>
-      </div>
-      <div id="<%= column_id %>" class="column" draggable="true">
-        <%= for %Server.Models.Card{title: title, data: data, id: id} = card <- cards do %>
-            <div class="card" id="<%= id %>" draggable="true" phx-hook="Card" data_column_id="<%= column_id %>" >
-              <%= title %>
-            </div>
-        <% end %>
+        <div class="column-title">
+          <%= col_content.title %>
+        </div>
 
-        <div class="card-design">
-          <form>
-            <label> new Card </label>
-            <label> title </label>
-            <input type="text" name="card-title" />
-            <input type="submit" value="create card"></input>
-          </form>
+        <div id="<%= column_id %>" class="column">
+
+          <%= for {card_id, card_content} <- col_content.cards do %>
+
+              <div class="card" draggable="true"
+                   id="<%= card_id %>"
+                   data_column_id="<%= column_id %>"
+                   phx-hook="Card"
+                   >
+                <%= card_content.title %>
+
+              </div>
+              <% end %>
+              <div class="card-design">
+                <form>
+                  <label> new Card </label>
+                  <label> title </label>
+                  <input type="text" name="card-title" />
+                  <input type="submit" value="create card"></input>
+                </form>
+              </div>
         </div>
       </div>
-
-    </div>
-    <% end %>
+      <% end %>
 
 
 
