@@ -1,5 +1,6 @@
 defmodule ServerWeb.Router do
   use ServerWeb, :router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
