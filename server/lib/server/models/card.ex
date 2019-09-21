@@ -7,20 +7,28 @@ defmodule Server.Models.Card do
              index: 0
             ]
 
-  def new(%{index: index}) do
+
+  def new(title, data, index) do
     %__MODULE__{
       id: Faker.UUID.v4,
-      data: Faker.Lorem.paragraph,
-      title: Faker.Lorem.sentence,
-      index: index,
+      title: title,
+      data: data,
+      index: index
     }
   end
 
-  def new(0, _) do
+
+  def few_random(%{index: index}) do
+    fake_data = Faker.Lorem.paragraph
+    fake_title = Faker.Lorem.sentence
+    __MODULE__.new(fake_title, fake_data, index)
+  end
+
+  def few_random(0, _) do
     []
   end
 
-  def new(count, index \\ 1) do
-    [new(%{index: index}) | new(count - 1, index + 1)]
+  def few_random(count, index \\ 1) do
+    [few_random(%{index: index}) | few_random(count - 1, index + 1)]
   end
 end
