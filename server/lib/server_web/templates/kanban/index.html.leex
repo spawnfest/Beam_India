@@ -10,7 +10,7 @@ KanBan board.
       </div>
       <div class="column" draggable="true">
         <%= for card <- cards do %>
-            <div class="card" draggable="true">
+            <div class="card" draggable="true" phx-hook="Card">
               <%= card %>
             </div>
         <% end %>

@@ -18,5 +18,21 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"
 
-let liveSocket = new LiveSocket("/live", Socket)
+let Hooks = {}
+
+Hooks.Card = {
+    mounted(){
+        this.el.addEventListener("dragstart", e => {
+            console.log("drag card started")
+        });
+
+        this.el.addEventListener("dragend", e => {
+            console.log("drag card end")
+        });
+
+    }
+}
+
+
+let liveSocket = new LiveSocket("/live", Socket, {hooks: Hooks})
 liveSocket.connect()
