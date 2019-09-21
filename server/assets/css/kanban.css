@@ -1,0 +1,23 @@
+.kanban-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.kanban-container .column {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+
+}
+
+.kanban-container .card {
+    display: flex;
+    flex-direction: column;
+
+    padding: 2px;
+    margin: 2px;
+    min-width: 200px;
+    border: 2px solid grey;
+    background-color: #ffe;
+}

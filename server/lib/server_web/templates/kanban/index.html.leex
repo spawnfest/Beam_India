@@ -1,12 +1,23 @@
 KanBan board.
 
-<%= for col <- @columns do %>
-    <p> <%= col %></p>
-    <% end %>
+<div class="kanban-container">
 
-
+<%= for {col,cards} <- @columns do %>
     <div>
-      <div class="card">
+      <div class="column" draggable="true">
+        <%= col %>
+
+        <%= for card <- cards do %>
+
+            <div class="card" draggable="true">
+              <%= card %>
+            </div>
+        <% end %>
+
       </div>
 
     </div>
+<% end %>
+
+
+</div>

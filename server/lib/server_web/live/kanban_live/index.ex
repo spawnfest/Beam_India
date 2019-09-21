@@ -5,7 +5,12 @@ defmodule ServerWeb.KanbanLive.Index do
 
 
   def mount(_assigns, socket) do
-    columns = ["One", "two", "three"]
+    columns = %{
+      "One": ~w(abc Bde C D E F H),
+      "two": ~w(orange mango banana),
+      "three": ~w(idli dosa uttappa upma),
+    }
+
     {:ok, assign(socket, :columns, columns )}
   end
 

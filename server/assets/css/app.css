@@ -2,3 +2,5 @@
 
 @import "./phoenix.css";
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
+
+@import "./kanban.css";
