@@ -53,8 +53,8 @@ Hooks.Card = {
             // collect from car through data transfer
 
             let payload = {}
-            payload.from_card_id = e.dataTransfer.getData("dragged_card_id")
-            payload.from_column_id = e.dataTransfer.getData("dragged_column_id")
+            payload.drag_card_id = e.dataTransfer.getData("dragged_card_id")
+            payload.drag_column_id = e.dataTransfer.getData("dragged_column_id")
             payload.drop_card_id = this.el.id;
             payload.drop_column_id = col_id
 
