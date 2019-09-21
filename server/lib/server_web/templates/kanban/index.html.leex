@@ -13,22 +13,24 @@ KanBan board.
       </div>
       <div id="<%= column_id %>" class="column" draggable="true">
         <%= for %Server.Models.Card{title: title, data: data, id: id} = card <- cards do %>
-            <div class="card" id="<%= id %>" draggable="true" phx-hook="Card">
+            <div class="card" id="<%= id %>" draggable="true" phx-hook="Card" data_column_id="<%= column_id %>" >
               <%= title %>
             </div>
         <% end %>
 
+        <div class="card-design">
+          <form>
+            <label> new Card </label>
+            <label> title </label>
+            <input type="text" name="card-title" />
+            <input type="submit" value="create card"></input>
+          </form>
+        </div>
       </div>
 
     </div>
     <% end %>
 
-    <form>
-      <label> Create new Card </label>
-      <label> Title </label>
-      <input type="text" name="card-title" />
-      <input type="submit" value="create card"></input>
-    </form>
 
 
 </div>

@@ -9,7 +9,7 @@
     flex-direction: column;
 }
 
-.kanban-container .card {
+.kanban-container .card, .kanban-container .card-design {
     display: flex;
     flex-direction: column;
 
