@@ -30,6 +30,15 @@ Hooks.Card = {
             console.log("drag card end")
         });
 
+        this.el.addEventListener("dragover", e => {
+            e.preventDefault();
+            console.log("drag over card, card id")
+        });
+
+        this.el.addEventListener("drop", e => {
+            console.log("drop over card, card id");
+            console.log(e.target.innerHTML);
+        });
     }
 }
 
