@@ -1,3 +1,3 @@
 defmodule Server.Models.Column do
-  defstruct [:id, :card, :index]
+  defstruct [id: 0000, card: [%Server.Models.Card{}], index: :random.uniform(100)]
 end
