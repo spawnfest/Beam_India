@@ -2,13 +2,16 @@ KanBan board.
 
 <div class="kanban-container">
 
-<%= for {col,cards} <- @columns do %>
-    <div class="column-box">
+  <%= for %Server.Models.Column{
+      title: column_title,
+      id: column_id,
+      cards: cards} <- @columns do %>
+      <div class="column-box">
 
       <div class="column-title">
-      <%= col %>
+        <%= column_title %>
       </div>
-      <div class="column" draggable="true">
+      <div id="<%= column_id %>" class="column" draggable="true">
         <%= for %Server.Models.Card{title: title, data: data, id: id} = card <- cards do %>
             <div class="card" id="<%= id %>" draggable="true" phx-hook="Card">
               <%= title %>

@@ -2,15 +2,11 @@ defmodule ServerWeb.KanbanLive.Index do
   use Phoenix.LiveView
 
   alias ServerWeb.KanbanView
-  alias Server.Models.Card
+  alias Server.Models.Board
 
 
   def mount(_assigns, socket) do
-    columns = %{
-      "One": Card.new(5),
-      "two": Card.new(9),
-      "three": Card.new(2),
-    }
+    %Board{columns: columns} = Board.new_random
 
     {:ok, assign(socket, :columns, columns )}
   end

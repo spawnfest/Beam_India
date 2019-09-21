@@ -5,6 +5,7 @@ defmodule Server.Models.Column do
 
   defstruct [
     id: 0,
+    title: "",
     cards: [],
     index: 0
   ]
@@ -14,6 +15,7 @@ defmodule Server.Models.Column do
 
     %__MODULE__{
       id: Faker.UUID.v4,
+      title: "doooo",
       cards: Card.few_random(random_count),
       index: :random.uniform(100)
     }
