@@ -3,12 +3,13 @@ KanBan board.
 <div class="kanban-container">
 
 <%= for {col,cards} <- @columns do %>
-    <div>
+    <div class="column-box">
+
+      <div class="column-title">
+      <%= col %>
+      </div>
       <div class="column" draggable="true">
-        <%= col %>
-
         <%= for card <- cards do %>
-
             <div class="card" draggable="true">
               <%= card %>
             </div>
@@ -17,7 +18,14 @@ KanBan board.
       </div>
 
     </div>
-<% end %>
+    <% end %>
+
+    <form>
+      <label> Create new Card </label>
+      <label> Title </label>
+      <input type="text" name="card-title" />
+      <input type="submit" value="create card"></input>
+    </form>
 
 
 </div>

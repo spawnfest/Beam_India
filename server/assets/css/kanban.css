@@ -7,8 +7,6 @@
 .kanban-container .column {
     display: flex;
     flex-direction: column;
-    border: 2px solid grey;
-
 }
 
 .kanban-container .card {
@@ -20,4 +18,11 @@
     min-width: 200px;
     border: 2px solid grey;
     background-color: #ffe;
+}
+.kanban-container .column-box{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid grey;
+    padding: 2px;
+
 }
