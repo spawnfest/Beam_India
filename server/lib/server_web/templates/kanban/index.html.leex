@@ -9,9 +9,9 @@ KanBan board.
       <%= col %>
       </div>
       <div class="column" draggable="true">
-        <%= for card <- cards do %>
-            <div class="card" draggable="true" phx-hook="Card">
-              <%= card %>
+        <%= for %Server.Models.Card{title: title, data: data, id: id} = card <- cards do %>
+            <div class="card" id="<%= id %>" draggable="true" phx-hook="Card">
+              <%= title %>
             </div>
         <% end %>
 

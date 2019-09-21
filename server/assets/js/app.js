@@ -49,7 +49,7 @@ Hooks.Card = {
 
             let payload = {}
             payload.from = e.dataTransfer.getData("dragged_card_id")
-            payload.to = e.target;
+            payload.to = this.el.id;
 
             this.pushEvent("move-card", payload);
         });

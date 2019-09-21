@@ -7,9 +7,9 @@ defmodule ServerWeb.KanbanLive.Index do
 
   def mount(_assigns, socket) do
     columns = %{
-      "One": ~w(abc Bde C D E F H),
-      "two": ~w(orange mango banana),
-      "three": ~w(idli dosa uttappa upma),
+      "One": Card.new(5),
+      "two": Card.new(9),
+      "three": Card.new(2),
     }
 
     {:ok, assign(socket, :columns, columns )}
