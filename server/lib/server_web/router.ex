@@ -17,7 +17,9 @@ defmodule ServerWeb.Router do
   scope "/", ServerWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
+
+    live "/", Kanban
   end
 
   # Other scopes may use custom stacks.
