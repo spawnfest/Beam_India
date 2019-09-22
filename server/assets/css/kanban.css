@@ -48,7 +48,14 @@
 
     margin-bottom: 5px;
     min-width: 200px;
+}
+
+.kanban-container .card-design {
     background-color: #ffe;
+
+    border-color: red;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
 }
 
 .kanban-container .card-design > form {
@@ -81,10 +88,17 @@
     color: #fff;
 }
 
-.kanban-container .card .sub-headline {
-    background-color: #ffe;
-    border: 2px solid brown;
+.kanban-container .card .sub-headline, .card-design .sub-headline {
+    background-color: azure;
     padding: 5px;
     text-align: center;
+    border-color: red;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+}
+
+.card::after {
+    content: "";
+    height: 10px;
 }
 
