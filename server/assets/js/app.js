@@ -27,6 +27,7 @@ Hooks.Card = {
 
             // add to dataTransfer. card_id
 
+            this.el.style.opacity = "0.5"
 
             let col_id =  this.el.attributes.data_column_id.value
 
@@ -36,11 +37,19 @@ Hooks.Card = {
         });
 
         this.el.addEventListener("dragend", e => {
+            this.el.className = "card"
             console.log("drag card end")
         });
 
         this.el.addEventListener("dragover", e => {
+            this.el.className = "card above"
             e.preventDefault();
+            console.log("drag over card, card id")
+        });
+
+        this.el.addEventListener("dragleave", e => {
+            e.preventDefault();
+            this.el.className = "card"
             console.log("drag over card, card id")
         });
 
