@@ -16,7 +16,7 @@
                    data_column_id="<%= column_id %>"
                    phx-hook="Card"
                    >
-                <div class="headline">
+                <div class="headline" style="background-color: <%= card_content.color %>">
                     <%= card_content.title %>
                 </div>
                 <div class="sub-headline">
@@ -25,19 +25,19 @@
 
               </div>
               <% end %>
-              <div class="card-design">
                 <form phx-submit="create_new_card" >
-                <div class="headline">
-                  <label> new Card </label>
-                </div>
-                <div class="sub-headline">
-                  <label> Title of card </label>
-                  <input type="text" name="card-title" />
-                  <input type="hidden" name="column_id" value="<%= column_id %>" />
-                  <input type="submit" value="create card"></input>
-                </div>
+                  <div class="card-design">
+                    <div class="headline">
+                      <label> create New Card </label>
+                    </div>
+                    <div class="sub-headline">
+                      <label> Title of card </label>
+                      <input type="text" name="card-title" />
+                      <input type="hidden" name="column_id" value="<%= column_id %>" />
+                      <input type="submit" value="create card"></input>
+                    </div>
+                  </div>
                 </form>
-              </div>
         </div>
       </div>
       <% end %>

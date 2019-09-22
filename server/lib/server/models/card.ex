@@ -2,15 +2,17 @@ defmodule Server.Models.Card do
   defstruct [id: 0000,
              data: "",
              title: "",
+             color: "",
              index: 0
             ]
 
 
-  def new(title, data \\ "abc", index \\ 1) do
+  def new(title, data \\ "abc", index \\ 1, color \\ "purple") do
     %__MODULE__{
       id: generate_uniq_id,
       title: title,
       data: data,
+      color: color,
       index: index
     }
   end
@@ -19,7 +21,8 @@ defmodule Server.Models.Card do
   def few_random(%{index: index}) do
     fake_data = some_name(:two)
     fake_title = some_name(:one)
-    __MODULE__.new(fake_title, fake_data, index)
+    random_color = ~w(Orange Violet Pink Green) |> Enum.random
+    __MODULE__.new(fake_title, fake_data, index, random_color)
   end
 
   def few_random(0, _) do
