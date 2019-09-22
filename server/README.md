@@ -2,6 +2,9 @@
 
 Kanban Board made using Phoenix LiveView, using LiveView Hooks.
 
+![Kanban Rasgulla in action](GIFs/Rasgulla09.gif)
+
+
  - Radom data is generated on every new instance. Board has a few columns and column has cards. 
  - Create Card
  - Move Card from one column to Another.
@@ -17,6 +20,7 @@ Kanban Board made using Phoenix LiveView, using LiveView Hooks.
  - We drop Card on Card. If Card is dropped on Column/Empty column, card should be added to column.
  - Genserver. It was planned, data will stored in Genserver and the move card logic will be implemented in GenServer.
  - For now random data is used. After implemeting User and Kanban owners, consider integrating with a database.
+ - The nested Access behaviour callback - pop_in, get_and_update_in, fetch_in. Expert advice needed for improvement
 
 ## Improvements needed.
 - Performance - length of data transfer on socket reply is around 5k for move card, add card. Debug to bring it down.
