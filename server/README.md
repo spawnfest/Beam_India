@@ -2,7 +2,7 @@
 
 Kanban Board made using Phoenix LiveView, using LiveView Hooks.
 
-![Kanban Rasgulla in action](GIFs/Rasgulla09.gif)
+![Kanban Rasgulla in action](/GIFs/rasgulla-09.gif)
 
 
  - Radom data is generated on every new instance. Board has a few columns and column has cards. 
