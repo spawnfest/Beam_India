@@ -30,21 +30,10 @@ defmodule ServerWeb.KanbanLive.Index do
     drop_card  =  get_in(columns,[drop_column_id, drop_card_id])
 
     # require IEx; IEx.pry
-    updated_board = put_in(rest_of_board, [drop_column_id, drop_card_id], drag_card)
-
-    # updated_board = update_in(rest_of_board, [drop_column_id], &([&1 | drag_card]))
-    # breaks on view
-
-    # IO.puts inspect(socket.assigns.board)
-    IO.puts "-------------------------"
-    IO.puts inspect(drag_card)
-    IO.puts inspect(drop_card)
-    IO.puts "-------------------------"
+    updated_board = put_in(rest_of_board, [drop_column_id, drop_card_id], %{drag_card_id => drag_card, drop_card_id => drop_card})
 
 
     {:noreply, assign(socket, columns: updated_board)}
-    # {:noreply, assign(socket, columns: rest_of_board)}
-    # {:noreply, socket}
   end
 
   def move_card do
