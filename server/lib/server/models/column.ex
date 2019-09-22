@@ -1,10 +1,6 @@
 defmodule Server.Models.Column do
-  import Faker
-
   alias Server.Models.Card
 
-  # @derive [Board]
-  # @derive [Access]
   defstruct [
     id: 0,
     title: "",
@@ -37,20 +33,35 @@ defmodule Server.Models.Column do
     {card, %__MODULE__{column | cards: other_cards } }
   end
 
+  @doc """
+  For now We have added test data as we build the cards, column functionality of drag and drop.
+  """
   def new_random do
     random_count = Enum.random([1,2,4,5,7,9,3,12])
     cards = Card.few_random(random_count)
 
     %__MODULE__{
-      id: Faker.UUID.v4,
-      title: "doooo",
-      # cards: Enum.map(cards,&(%{&1.id => &1  })),
+      id: generate_uniq_id,
+      title: some_name(),
       cards: split_cards(cards),
       index: :random.uniform(100)
     }
   end
 
-  def split_cards(columns) do
+  defp some_name do
+    ~w(Mango Banana Jackfruit Apple Orange Watermelon)
+    |> Enum.random
+  end
+
+  defp generate_uniq_id do
+    Integer.to_string(:rand.uniform(4294967296), 32) <> Integer.to_string(:rand.uniform(4294967296), 32)
+  end
+
+  # I want a nested Board.
+  # A map with column_id as key and values will contain column_title, cards.
+  # Similarly, Card will be a Map with card_id as key and value includes title, description of card.
+  # Enum Map gave a list, need an array so used Reduce
+  defp split_cards(columns) do
     # Enum.reduce([1, 2, 3], %{}, fn x, acc -> Map.put(acc, x, x)  end) end)
 
     Enum.reduce(columns, %{}, fn(column, acc) ->
@@ -58,12 +69,6 @@ defmodule Server.Models.Column do
       # %{id => remaining_column}
       Map.put(acc, id, remaining_column)
     end)
-
-    # Enum.map(cards, fn(card) ->
-    #   {id, remaing_card} = Map.pop(card, :id);
-    #   %{id => remaing_card}
-    # end)
-
 
   end
 
