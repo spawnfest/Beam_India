@@ -4,10 +4,6 @@ Kanban Board built using Elixir and Phoenix LiveView, using LiveView Hooks.
 
 ![Kanban Rasgulla in action](GIFs/rasgulla-09.gif)
 
-Rasgulla is a sweet dish/ Dessert. [wikipedia](https://en.wikipedia.org/wiki/Rasgulla)
-![Rasgulla photo](GIFs/rasgullasInBowl.jpg)
-
-
 ## Code can be found inside folder named`Server`
 
 
@@ -48,4 +44,12 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 If you wait for longer time and unending spinner is visible, need to refresh the page.
 
+If you need anything, I am on twitter as [@iamsandeshsoni](https://twitter.com/IamSandeshSoni)
+
+-----------------------------------------
+-----------------------------------------
+
+
+Rasgulla is a sweet dish/ Dessert. [wikipedia](https://en.wikipedia.org/wiki/Rasgulla)
+![Rasgulla photo](GIFs/rasgullasInBowl.jpg)
 
