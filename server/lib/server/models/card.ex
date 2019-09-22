@@ -17,8 +17,8 @@ defmodule Server.Models.Card do
 
 
   def few_random(%{index: index}) do
-    fake_data = some_name
-    fake_title = some_name
+    fake_data = some_name(:two)
+    fake_title = some_name(:one)
     __MODULE__.new(fake_title, fake_data, index)
   end
 
@@ -34,12 +34,13 @@ defmodule Server.Models.Card do
     Integer.to_string(:rand.uniform(4294967296), 32) <> Integer.to_string(:rand.uniform(4294967296), 32)
   end
 
+  defp some_name(type \\ :one) do
+    wo = ~w(headphone mic helmet monitor chair door knob towel pillow wire router) |> Enum.random
 
-  defp some_name do
-    word = ~w(headphone mic helmet monitor chair door knob towel pillow wire router)
-    |> Enum.random
-
-    "#{word} #{:random.uniform(99)} "
+    case type do
+      :one -> "#{wo} #{:random.uniform(99)}"
+      :two -> "#{wo} #{wo} #{wo} #{:random.uniform(99)}"
+    end
   end
 
 end

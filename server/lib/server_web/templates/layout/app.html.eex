@@ -15,10 +15,8 @@
             <li>HOME</li>
           </ul>
         </nav>
-        <span class="header-text" >Kanban Rasgulla</span> by
-        <a href="" class="phx-logo">
-        <span> Sandesh Soni </span>
-        </a>
+        <span class="header-text" >Kanban Rasgulla</span>
+                <a href="sandeshsoni.com"> by <span style="font-weight: 800"> Sandesh Soni </span> </a>
       </section>
     </header>
     <main role="main" class="container">

@@ -1,5 +1,3 @@
-KanBan board.
-
 <div class="kanban-container">
 
   <%= for {column_id, col_content } <- @columns do %>
@@ -18,17 +16,26 @@ KanBan board.
                    data_column_id="<%= column_id %>"
                    phx-hook="Card"
                    >
-                <%= card_content.title %>
+                <div class="headline">
+                    <%= card_content.title %>
+                </div>
+                <div class="sub-headline">
+                  <%= card_content.data %>
+                </div>
 
               </div>
               <% end %>
               <div class="card-design">
                 <form phx-submit="create_new_card" >
+                <div class="headline">
                   <label> new Card </label>
-                  <label> title </label>
+                </div>
+                <div class="sub-headline">
+                  <label> Title of card </label>
                   <input type="text" name="card-title" />
                   <input type="hidden" name="column_id" value="<%= column_id %>" />
                   <input type="submit" value="create card"></input>
+                </div>
                 </form>
               </div>
         </div>

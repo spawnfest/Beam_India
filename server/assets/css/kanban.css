@@ -7,22 +7,60 @@
 .kanban-container .column {
     display: flex;
     flex-direction: column;
+    padding: 5px;
+}
+
+.kanban-container .column-title {
+    background-color: maroon;
+    width: 100%;
+    padding: 2px;
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
 }
 
 .kanban-container .card, .kanban-container .card-design {
     display: flex;
     flex-direction: column;
 
-    padding: 2px;
-    margin: 2px;
+    margin-bottom: 5px;
     min-width: 200px;
-    border: 2px solid grey;
     background-color: #ffe;
 }
+
+.kanban-container .card-design > form {
+    background-color: #fee;
+}
+
+.kanban-container .card-design > form > input {
+    background-color: white;
+}
+
 .kanban-container .column-box{
     display: flex;
     flex-direction: column;
-    border: 2px solid grey;
-    padding: 2px;
+    border-color: red;
+    border-style: solid;
+    border-width: 2px 0 2px 2px;
+}
 
+.kanban-container .column-box:last-child {
+    border-width: 2px 2px 2px 2px;
+}
+
+
+.kanban-container .card .headline, .card-design .headline {
+    background-color: brown;
+    width: 100%;
+    padding: 2px;
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+}
+
+.kanban-container .card .sub-headline {
+    background-color: #ffe;
+    border: 2px solid brown;
+    padding: 5px;
+    text-align: center;
 }
