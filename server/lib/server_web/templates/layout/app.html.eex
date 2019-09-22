@@ -12,11 +12,12 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <li>HOME</li>
           </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
+        <span class="header-text" >Kanban Rasgulla</span> by
+        <a href="" class="phx-logo">
+        <span> Sandesh Soni </span>
         </a>
       </section>
     </header>

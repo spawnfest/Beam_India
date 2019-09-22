@@ -4,3 +4,14 @@
 @import "../../deps/phoenix_live_view/assets/css/live_view.css";
 
 @import "./kanban.css";
+
+span.header-text {
+    padding: 2px 4x;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+    font-family: 'Noto Sans JP', sans-serif;
+    text-shadow: 2px 1px 11px black;
+    text-align: center;
+    color: white;
+}
