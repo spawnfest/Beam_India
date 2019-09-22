@@ -6,7 +6,7 @@ defmodule Server.Models.Card do
             ]
 
 
-  def new(title, data, index) do
+  def new(title, data \\ "abc", index \\ 1) do
     %__MODULE__{
       id: generate_uniq_id,
       title: title,

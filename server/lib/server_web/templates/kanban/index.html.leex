@@ -23,10 +23,11 @@ KanBan board.
               </div>
               <% end %>
               <div class="card-design">
-                <form>
+                <form phx-submit="create_new_card" >
                   <label> new Card </label>
                   <label> title </label>
                   <input type="text" name="card-title" />
+                  <input type="hidden" name="column_id" value="<%= column_id %>" />
                   <input type="submit" value="create card"></input>
                 </form>
               </div>

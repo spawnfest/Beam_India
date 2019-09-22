@@ -16,6 +16,23 @@ defmodule ServerWeb.KanbanLive.Index do
     KanbanView.render("index.html", assigns)
   end
 
+  def handle_event("create_new_card", form_inputs, socket) do
+    %{"card-title" => card_title,
+      "column_id" => column_id
+    } = form_inputs
+
+    columns = socket.assigns.columns
+
+    new_card = Server.Models.Card.new(card_title)
+    {new_card_id, new_card_content} =  Map.pop(new_card, :id)
+
+    old_col = get_in(columns, [column_id])
+    col_aftr_add =  %Server.Models.Column{old_col | cards: Map.put(old_col.cards, new_card_id, new_card_content) }
+    updated_board = put_in(columns, [column_id], col_aftr_add)
+
+    {:noreply, assign(socket, columns: updated_board)}
+  end
+
   def handle_event("move-card", %{"drag_column_id" => drag_column_id,
                                   "drag_card_id" => drag_card_id,
                                   "drop_card_id" => drop_card_id,

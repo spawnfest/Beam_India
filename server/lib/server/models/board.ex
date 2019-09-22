@@ -52,8 +52,8 @@ defmodule Server.Models.Board do
   @impl Access
   def get_and_update(board, column_id, fun) do
 
-    # require IEx; IEx.pry
     # {card, other_cards} = Map.pop(column.cards, card_id)
+
 
     Map.get_and_update(board.columns, column_id, fun)
   end
