@@ -19,17 +19,46 @@ defmodule Server.Models.Column do
 
   @impl Access
   def fetch(column, card_id) do
+    # Map.fetch(column.cards, card_id)
+
+    # require IEx; IEx.pry
+
     Map.fetch(column.cards, card_id)
   end
 
   @impl Access
   def get_and_update(column, card_id, fun) do
-    Map.get_and_update(column.cards, card_id, fun)
+    # require IEx; IEx.pry
+
+    # {card, other_cards} = Map.pop(column.cards, card_id)
+
+    {card, _other_cards} = Map.pop(column.cards, card_id)
+    {_something, dragged_card} = fun.(card_id)
+
+    # IO.puts  "-=-=-=-=-=-"
+    # IO.puts inspect(dragged_card)
+
+    # IO.puts  "-=-=-=-=-=-"
+    # IO.puts inspect(column.cards)
+    # IO.puts "add card"
+
+    # require IEx; IEx.pry
+
+    # IO.puts inspect(fun.(card_id))
+
+    {column, %__MODULE__{column | cards: Map.put(column.cards, card_id, dragged_card) } }
+    # Map.get_and_update(column.cards, card_id, fun)
   end
 
   @impl Access
   def pop(column, card_id) do
-    Map.pop(column.cards, card_id)
+
+    # require IEx; IEx.pry
+    # require IEx; IEx.pry
+    {card, other_cards} = Map.pop(column.cards, card_id)
+
+    {card, %__MODULE__{column | cards: other_cards } }
+    # Map.pop(split_cards(column.cards), card_id)
   end
 
 

@@ -30,9 +30,9 @@ defmodule ServerWeb.KanbanLive.Index do
     drop_card  =  get_in(columns,[drop_column_id, drop_card_id])
 
     # require IEx; IEx.pry
-    # update_board = put_in(rest_of_board, [drop_column_id], drag_card)
+    updated_board = put_in(rest_of_board, [drop_column_id, drop_card_id], drag_card)
 
-    updated_board = update_in(rest_of_board, [drop_column_id], &([&1 | drag_card]))
+    # updated_board = update_in(rest_of_board, [drop_column_id], &([&1 | drag_card]))
     # breaks on view
 
     # IO.puts inspect(socket.assigns.board)
@@ -43,6 +43,7 @@ defmodule ServerWeb.KanbanLive.Index do
 
 
     {:noreply, assign(socket, columns: updated_board)}
+    # {:noreply, assign(socket, columns: rest_of_board)}
     # {:noreply, socket}
   end
 

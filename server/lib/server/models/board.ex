@@ -39,6 +39,7 @@ defmodule Server.Models.Board do
 
   @impl Access
   def fetch(board, column_id) do
+    # require IEx; IEx.pry
     Map.fetch(board.columns, column_id)
   end
 
@@ -50,12 +51,19 @@ defmodule Server.Models.Board do
 
   @impl Access
   def get_and_update(board, column_id, fun) do
+
+    # require IEx; IEx.pry
+    # {card, other_cards} = Map.pop(column.cards, card_id)
+
     Map.get_and_update(board.columns, column_id, fun)
   end
 
   @impl Access
   def pop(board, column_id) do
-    Map.pop(board.columns, column_id)
+    # require IEx; IEx.pry
+    {column, other_columns} = Map.pop(board.column, column_id)
+    # Map.pop(split_columns(board.columns), column_id)
+    {column, %__MODULE__{board | columns: other_columns } }
   end
 
 end
